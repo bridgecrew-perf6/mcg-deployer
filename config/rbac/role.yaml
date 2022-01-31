@@ -1,0 +1,86 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - mcg.openshift.io
+  resources:
+  - managedmcgs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - mcg.openshift.io
+  resources:
+  - managedmcgs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - mcg.openshift.io
+  resources:
+  - managedmcgs/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - noobaas.noobaa.io
+  resources:
+  - noobaas
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - noobaas.noobaa.io
+  resources:
+  - noobaas/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - noobaas.noobaa.io
+  resources:
+  - noobaas/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - storage.openshift.io
+  resources:
+  - storagesystems
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - storage.openshift.io
+  resources:
+  - storagesystems/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - storage.openshift.io
+  resources:
+  - storagesystems/status
+  verbs:
+  - get
+  - patch
+  - update
